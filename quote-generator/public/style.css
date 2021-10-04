@@ -8,11 +8,90 @@ body {
   margin: 0;
   min-height: 100vh;
   background-image: url(./images/gradient-background.png);
-  color: #242a35;
   font-family: Mulish, sans-serif;
   font-weight: 700;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.quote-container {
+  background-color: rgb(255, 255, 255);
+  width: auto;
+  max-width: 900px;
+  border-radius: 10px 10px 10px 0;
+  box-shadow: 0px 10px 10px 10px rgba(36, 42, 53, 0.3);
+}
+
+.quote-text {
+  font-size: 3rem;
+  margin: 20px 30px;
+  color: #242a35;
+}
+
+.long-quote {
+  font-size: 2rem;
+}
+
+.fas {
+  font-size: 3rem;
+}
+
+.quote-author {
+  font-size: 1rem;
+  margin: 20px 30px;
+  color: #242a35;
+  text-align: left;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.button-container {
+  border-radius: 0 0 10px 0;
+  background-color: #0b1a39;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  box-shadow: rgba(10, 21, 43, 0) 0px 9px 13px -6px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 15px;
+  padding: 15px 20px;
+  text-align: center;
+  transition: all 0.35s ease 0s;
+  white-space: nowrap;
+}
+
+button:active {
+  outline: 0px;
+}
+
+button:hover {
+  background-color: #ffffff;
+  box-shadow: none;
+  color: #0b1a39;
+  outline: 0px;
+  transform: none;
+}
+
+/* Media Query: Tablet or Smaller */
+@media screen and (max-width: 1000px) {
+  .quote-container {
+    margin: auto 10px;
+  }
+
+  .quote-text {
+    font-size: 2.5rem;
+  }
 }
