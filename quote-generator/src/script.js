@@ -1,3 +1,5 @@
+const quoteContainer = document.getElementById("quote-generator");
+
 let apiQuotes = [];
 
 // Show New Quotes
