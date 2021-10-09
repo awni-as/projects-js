@@ -4,7 +4,7 @@ let apiQuotes = [];
 
 // Show New Quotes
 function newQuote() {
-  // Pick a random quote from apiQuotes array
+  // Pick a random quote from apiQuotes array.
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
 }
 
