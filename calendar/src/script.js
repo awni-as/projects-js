@@ -36,7 +36,21 @@ function load() {
   });
 
   //   Calculate the number of padding days
-  const paddingDays = weekdays.indexOf(dateString.split(", ")[0]);
-}
 
+  const paddingDays = weekdays.indexOf(dateString.split(", ")[0]);
+
+  for (let i = 1; i <= paddingDays + daysInMonth; i++) {
+    const daySquare = document.createElement("div");
+    daySquare.classList.add("day");
+
+    if (i > paddingDays) {
+      daySquare.innerText = i - paddingDays;
+
+      daySquare.addEventListener("click", () => console.log("click"));
+    } else {
+      daySquare.classList.add("padding");
+    }
+    calendar.appendChild(daySquare);
+  }
+}
 load();
