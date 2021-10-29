@@ -9,6 +9,5 @@ function decrement() {
 }
 
 function reset() {
-  var number = Number(document.getElementById("number").innerHTML);
   document.getElementById("number").innerHTML = 0;
 }
