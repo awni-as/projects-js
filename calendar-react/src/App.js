@@ -27,6 +27,15 @@ function App() {
   return (
     <div id="container">
       <CalendarHeader />
+      <div id="weekdays">
+        <div>Sunday</div>
+        <div>Monday</div>
+        <div>Tuesday</div>
+        <div>Wednesday</div>
+        <div>Thursday</div>
+        <div>Friday</div>
+        <div>Saturday</div>
+      </div>
       <Day />
     </div>
   );
