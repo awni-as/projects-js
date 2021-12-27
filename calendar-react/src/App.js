@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Day from "./components/Day";
 import CalendarHeader from "./components/CalendarHeader";
+import NewEventModal from "./components/NewEventModal";
+import DeleteEventModal from "./components/DeleteEventModal";
 import useDate from "./hooks/useDate";
 
 function App() {
@@ -20,9 +22,15 @@ function App() {
     localStorage.setItem("events", JSON.stringify(events));
   }, [events]);
 
+  const { days, dateDisplay } = useDate(events, nav);
+
   return (
     <div id="container">
-      <CalendarHeader />
+      <CalendarHeader
+        dateDisplay={dateDisplay}
+        onNext={() => setNav(nav + 1)}
+        onBack={() => setNav(nav - 1)}
+      />
       <div id="weekdays">
         <div>Sunday</div>
         <div>Monday</div>
@@ -32,7 +40,19 @@ function App() {
         <div>Friday</div>
         <div>Saturday</div>
       </div>
-      <Day />
+      <div id="calendar">
+        {days.map((d, index) => (
+          <Day
+            key={index}
+            day={d}
+            onClick={() => {
+              if (d.value !== "padding") {
+                setClicked(d.date);
+              }
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 }

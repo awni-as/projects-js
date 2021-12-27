@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const useDate = (events, nav) => {
+function useDate(events, nav) {
   const [dateDisplay, setDateDisplay] = useState("");
   const [days, setDays] = useState([]);
 
@@ -38,6 +38,7 @@ export const useDate = (events, nav) => {
     setDateDisplay(
       `${dt.toLocaleDateString("en-us", { month: "long" })} ${year}`
     );
+
     const paddingDays = weekdays.indexOf(dateString.split(", ")[0]);
 
     const daysArr = [];
@@ -69,4 +70,6 @@ export const useDate = (events, nav) => {
     days,
     dateDisplay,
   };
-};
+}
+
+export default useDate;

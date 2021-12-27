@@ -19,3 +19,9 @@
 .day + .currentDay {
   background-color: #e8f4fa;
 }
+
+.padding {
+  cursor: default !important;
+  background-color: #fffcff !important;
+  box-shadow: none !important;
+}

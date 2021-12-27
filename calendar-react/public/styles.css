@@ -45,11 +45,7 @@ button {
   max-height: 55px;
   overflow: hidden;
 }
-.padding {
-  cursor: default !important;
-  background-color: #fffcff !important;
-  box-shadow: none !important;
-}
+
 #newEventModal,
 #deleteEventModal {
   z-index: 20;

@@ -3,9 +3,14 @@ import React from "react";
 import "./Day.css";
 
 function Day(props) {
+  const className = `day ${props.day.value === "padding" ? "padding" : ""} ${
+    props.day.isCurrentDay ? "currentDay" : ""
+  }`;
   return (
-    <div>
-      <div className="day">Day</div>
+    <div onClick={props.onClick} className="day">
+      {props.day.value === "padding" ? "" : props.day.value}
+
+      {props.day.event && <div className="event">{props.day.event.title}</div>}
     </div>
   );
 }
