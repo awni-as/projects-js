@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Day from "./components/Day";
+import CalendarHeader from "./components/CalendarHeader";
 
 function App() {
   // 0 refers to current month. -1 refers to the previous month. 1 refers to the next month.
@@ -24,7 +25,8 @@ function App() {
   }, [events]);
 
   return (
-    <div>
+    <div id="container">
+      <CalendarHeader />
       <Day />
     </div>
   );

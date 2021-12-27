@@ -1,0 +1,11 @@
+#header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #d36c6c;
+}
+
+#header button {
+  background-color: #92a1d1;
+}
