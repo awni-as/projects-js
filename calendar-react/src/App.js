@@ -7,7 +7,7 @@ import useDate from "./hooks/useDate";
 import Weekdays from "./components/Weekdays";
 
 function App() {
-  // 0 refers to current month. -1 refers to the previous month. 1 refers to the next month.
+  // 0 refers to current month then it increments/decrements based on the selection.
   const [nav, setNav] = useState(0);
 
   // Initialized as null.
