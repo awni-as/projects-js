@@ -4,6 +4,7 @@ import CalendarHeader from "./components/CalendarHeader";
 import NewEventModal from "./components/NewEventModal";
 import DeleteEventModal from "./components/DeleteEventModal";
 import useDate from "./hooks/useDate";
+import Weekdays from "./components/Weekdays";
 
 function App() {
   // 0 refers to current month. -1 refers to the previous month. 1 refers to the next month.
@@ -31,15 +32,7 @@ function App() {
         onNext={() => setNav(nav + 1)}
         onBack={() => setNav(nav - 1)}
       />
-      <div id="weekdays">
-        <div>Sunday</div>
-        <div>Monday</div>
-        <div>Tuesday</div>
-        <div>Wednesday</div>
-        <div>Thursday</div>
-        <div>Friday</div>
-        <div>Saturday</div>
-      </div>
+      <Weekdays />
       <div id="calendar">
         {days.map((d, index) => (
           <Day

@@ -1,0 +1,9 @@
+#weekdays {
+  width: 100%;
+  display: flex;
+  color: #247ba0;
+}
+#weekdays div {
+  width: 100px;
+  padding: 10px;
+}
