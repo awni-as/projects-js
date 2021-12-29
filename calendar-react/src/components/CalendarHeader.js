@@ -2,17 +2,17 @@
 import React from "react";
 import "./CalendarHeader.css";
 
-function CalendarHeader() {
+function CalendarHeader(props) {
   return (
     <div id="header">
       <div id="monthDisplay">
-        <h2>January, 2021</h2>
+        <h2>{props.dateDisplay}</h2>
       </div>
       <div>
-        <button id="backButton" type="submit">
+        <button onClick={props.onBack} id="backButton" type="submit">
           Back
         </button>
-        <button id="nextButton" type="submit">
+        <button onClick={props.onNext} id="nextButton" type="submit">
           Next
         </button>
       </div>

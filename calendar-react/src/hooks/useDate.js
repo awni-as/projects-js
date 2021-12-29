@@ -7,6 +7,7 @@ function useDate(events, nav) {
   const eventForDate = (date) => events.find((e) => e.date === date);
 
   useEffect(() => {
+    // Weekdays will be used to determine the number of padding days.
     const weekdays = [
       "Sunday",
       "Monday",
@@ -16,6 +17,8 @@ function useDate(events, nav) {
       "Friday",
       "Saturday",
     ];
+
+    // Calendar Information.
     const dt = new Date();
 
     if (nav !== 0) {
@@ -27,7 +30,9 @@ function useDate(events, nav) {
     const year = dt.getFullYear();
 
     const firstDayOfMonth = new Date(year, month, 1);
+    // Represents the number of days to render.
     const daysInMonth = new Date(year, month + 1, 0).getDate();
+    // Helps figuring out the number of padding days in the month.
     const dateString = firstDayOfMonth.toLocaleDateString("en-us", {
       weekday: "long",
       year: "numeric",
@@ -39,10 +44,11 @@ function useDate(events, nav) {
       `${dt.toLocaleDateString("en-us", { month: "long" })} ${year}`
     );
 
+    // Number of padding days in a given month.
     const paddingDays = weekdays.indexOf(dateString.split(", ")[0]);
 
+    // Looping through the padding days & days in the month and rendering them into squares.
     const daysArr = [];
-
     for (let i = 1; i <= paddingDays + daysInMonth; i++) {
       const dayString = `${month + 1}/${i - paddingDays}/${year}`;
 
