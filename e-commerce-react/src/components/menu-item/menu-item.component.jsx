@@ -10,7 +10,7 @@ function MenuItem(props) {
       className={`menu-item ${props.size}`}
     >
       <div className="content">
-        <h1 className="title">{props.title}</h1>
+        <h1 className="title">{props.title.toUpperCase()}</h1>
         <span className="subtitle">SHOP NOW</span>
       </div>
     </div>
