@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./directory.styles.scss";
 import MenuItem from "../menu-item/menu-item.component";
 
@@ -38,8 +38,6 @@ const sections = [
 ];
 
 function Directory() {
-  const [currentSections, setCurrentSections] = useState(sections);
-
   return (
     <div className="directory-menu">
       {sections.map((section) => (
