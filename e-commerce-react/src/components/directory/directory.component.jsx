@@ -37,7 +37,7 @@ const sections = [
   },
 ];
 
-function Directory() {
+function Directory(props) {
   return (
     <div className="directory-menu">
       {sections.map((section) => (
@@ -46,6 +46,7 @@ function Directory() {
           title={section.title}
           imageURL={section.imageUrl}
           size={section.size}
+          linkUrl={section.linkUrl}
         />
       ))}
     </div>
