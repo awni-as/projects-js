@@ -1,11 +1,13 @@
 import React from "react";
 
-import "./sign-in-and-sign-up.scss";
+import "./sign-in-and-sign-up.styles.scss";
+
+import SignIn from "../../components/sign-in/sign-in.component";
 
 function SignInAndSignUpPage() {
   return (
     <div className="sign-in-and-sign-up">
-      Hello from the Login and Signup Page!
+      <SignIn />
     </div>
   );
 }
