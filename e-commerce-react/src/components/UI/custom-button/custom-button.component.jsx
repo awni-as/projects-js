@@ -4,7 +4,13 @@ import "./custom-button.styles.scss";
 
 function CustomButton(props) {
   return (
-    <button type={props.type} onClick={props.onClick} className="custom-button">
+    <button
+      type={props.type}
+      onClick={props.onClick}
+      className={`${
+        props.isGoogleSignIn ? "google-sign-in" : ""
+      } custom-button`}
+    >
       {props.buttonText}
     </button>
   );

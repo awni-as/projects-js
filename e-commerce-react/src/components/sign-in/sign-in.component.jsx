@@ -37,6 +37,7 @@ function SignIn() {
           type="email"
           onChange={emailChangeHandler}
           value={email}
+          required
         />
         <FormInput
           label="Password"
@@ -44,12 +45,16 @@ function SignIn() {
           type="password"
           onChange={passwordChangeHandler}
           value={password}
+          required
         />
-        <CustomButton type="submit" buttonText="Sign In" />
-        <CustomButton
-          onClick={signInWithGoogle}
-          buttonText="Sign In With Google"
-        />
+        <div className="buttons">
+          <CustomButton type="submit" buttonText="Sign In" />
+          <CustomButton
+            onClick={signInWithGoogle}
+            buttonText="Sign In With Google"
+            isGoogleSignIn
+          />
+        </div>
       </form>
     </div>
   );

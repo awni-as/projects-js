@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
@@ -10,9 +10,22 @@ import Header from "./components/header/header.component";
 import { auth } from "./utils/firebase.utils";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+      console.log(user);
+    });
+
+    return () => {
+      unsubscribeFromAuth();
+    };
+  }, []);
+
   return (
     <div>
-      <Header />
+      <Header currentUser={currentUser} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ShopPage />} />
