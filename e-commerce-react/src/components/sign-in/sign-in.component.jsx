@@ -50,6 +50,7 @@ function SignIn() {
         <div className="buttons">
           <CustomButton type="submit" buttonText="Sign In" />
           <CustomButton
+            type="button"
             onClick={signInWithGoogle}
             buttonText="Sign In With Google"
             isGoogleSignIn

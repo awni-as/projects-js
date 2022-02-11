@@ -7,7 +7,7 @@ import SECTIONS from "./sections.component";
 
 const sections = SECTIONS;
 
-function Directory(props) {
+function Directory() {
   return (
     <div className="directory-menu">
       {sections.map((section) => (
