@@ -5,18 +5,25 @@ import { useSelector, useDispatch } from "react-redux";
 import { auth } from "../../utils/firebase.utils";
 import { setCurrentUser } from "../../redux/user/user.actions";
 
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 import "./header.styles.scss";
 
 function Header() {
   const currentUser = useSelector((state) => state.user.currentUser);
+  const hidden = useSelector((state) => state.cart.hidden);
   const dispatch = useDispatch();
 
   const handleSignOut = () => {
-    auth.signOut().then(() => {
-      dispatch(setCurrentUser());
-    });
+    auth
+      .signOut()
+      .then(() => {
+        dispatch(setCurrentUser());
+      })
+      .catch((err) => alert(err.message));
   };
 
   return (
@@ -40,7 +47,9 @@ function Header() {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      {hidden ? <CartDropdown /> : null}
     </div>
   );
 }

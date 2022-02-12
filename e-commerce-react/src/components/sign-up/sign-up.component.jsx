@@ -39,10 +39,20 @@ function SignUp() {
     }
   }
 
-  function handleChange(event) {
-    const { name, value } = event.target;
+  function nameChangeHandler(event) {
+    setNewUser({ ...newUser, displayName: event.target.value });
+  }
 
-    setNewUser({ [name]: value });
+  function emailChangeHandler(event) {
+    setNewUser({ ...newUser, email: event.target.value });
+  }
+
+  function passwordChangeHandler(event) {
+    setNewUser({ ...newUser, password: event.target.value });
+  }
+
+  function confirmPasswordChangeHandler(event) {
+    setNewUser({ ...newUser, confirmPassword: event.target.value });
   }
 
   return (
@@ -54,32 +64,32 @@ function SignUp() {
         <FormInput
           type="text"
           name="displayName"
-          value={initialUserState.displayName}
-          onChange={handleChange}
+          value={newUser.displayName}
+          onChange={nameChangeHandler}
           label="Display Name"
           required
         ></FormInput>
         <FormInput
           type="text"
           name="displayName"
-          value={initialUserState.email}
-          onChange={handleChange}
+          value={newUser.email}
+          onChange={emailChangeHandler}
           label="Email"
           required
         ></FormInput>
         <FormInput
           type="password"
           name="password"
-          value={initialUserState.password}
-          onChange={handleChange}
+          value={newUser.password}
+          onChange={passwordChangeHandler}
           label="Password"
           required
         ></FormInput>
         <FormInput
           type="password"
           name="confirmPassword"
-          value={initialUserState.confirmPassword}
-          onChange={handleChange}
+          value={newUser.confirmPassword}
+          onChange={confirmPasswordChangeHandler}
           label="Confirm Password"
           required
         ></FormInput>

@@ -26,7 +26,7 @@ function App() {
           dispatch(setCurrentUser({ id: snapShot.id, ...snapShot.data() }));
         });
       } else {
-        dispatch(setCurrentUser({ currentUser: userAuth }));
+        dispatch(setCurrentUser());
       }
     });
 
