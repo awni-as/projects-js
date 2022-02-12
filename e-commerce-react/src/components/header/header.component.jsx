@@ -12,13 +12,11 @@ import "./header.styles.scss";
 function Header() {
   const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
-  console.log(currentUser);
 
-  const logout = () => {
-    auth.signOut();
-    dispatch(setCurrentUser({ currentUser: null }));
-    console.log("Logging out...");
-    console.log(currentUser);
+  const handleSignOut = () => {
+    auth.signOut().then(() => {
+      dispatch(setCurrentUser());
+    });
   };
 
   return (
@@ -34,7 +32,7 @@ function Header() {
           CONTACT
         </Link>
         {currentUser ? (
-          <div className="option" onClick={logout}>
+          <div className="option" onClick={handleSignOut}>
             SIGN OUT
           </div>
         ) : (
