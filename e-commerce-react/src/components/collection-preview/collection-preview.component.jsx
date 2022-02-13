@@ -17,6 +17,7 @@ function CollectionPreview(props) {
               name={item.name}
               imageUrl={item.imageUrl}
               price={item.price}
+              item={item}
             />
           ))}
       </div>

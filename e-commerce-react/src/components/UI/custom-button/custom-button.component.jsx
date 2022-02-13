@@ -7,7 +7,7 @@ function CustomButton(props) {
     <button
       type={props.type}
       onClick={props.onClick}
-      className={`${
+      className={`${props.inverted ? "inverted" : ""}${
         props.isGoogleSignIn ? "google-sign-in" : ""
       } custom-button`}
     >
