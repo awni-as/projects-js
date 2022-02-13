@@ -1,19 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import CustomButton from "../UI/custom-button/custom-button.component";
 import CartItem from "../cart-item/cart-item.component";
+import { toggleCartHidden } from "../../redux/cart/cart.actions";
 
 import "./cart-dropdown-styles.scss";
 
 function CartDropdown() {
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const dispatch = useDispatch();
 
   let navigate = useNavigate();
 
   function handleClick() {
     navigate("checkout");
+    dispatch(toggleCartHidden());
   }
 
   return (
