@@ -7,6 +7,7 @@ import "./App.css";
 import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import CheckoutPage from "./pages/checkout/checkout.component";
 import Header from "./components/header/header.component";
 import { auth, createUserProfileDocument } from "./utils/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
@@ -45,6 +46,7 @@ function App() {
           path="/signIn"
           element={currentUser ? <Navigate to="/" /> : <SignInAndSignUpPage />}
         />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </div>
   );
