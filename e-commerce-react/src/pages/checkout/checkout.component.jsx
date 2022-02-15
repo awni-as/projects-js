@@ -40,6 +40,7 @@ function CheckoutPage() {
           name={cartItem.name}
           price={cartItem.price}
           quantity={cartItem.quantity}
+          cartItem={cartItem}
         />
       ))}
       <div className="total">
