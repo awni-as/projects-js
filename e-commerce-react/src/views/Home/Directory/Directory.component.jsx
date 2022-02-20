@@ -1,13 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import "./Directory.styles.scss";
 
 import MenuItem from "../MenuItem/MenuItem.component";
-import SECTIONS from "./sections.component";
-
-const sections = SECTIONS;
 
 function Directory() {
+  const sections = useSelector((state) => state.directory.sections);
+
   return (
     <div className="directory-menu">
       {sections.map((section) => (

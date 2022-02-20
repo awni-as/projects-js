@@ -41,7 +41,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop/*" element={<ShopPage />} />
         <Route
           path="/signIn"
           element={currentUser ? <Navigate to="/" /> : <SignInAndSignUpPage />}
