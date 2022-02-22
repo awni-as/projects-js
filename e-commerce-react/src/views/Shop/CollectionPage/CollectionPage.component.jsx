@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 import CollectionItem from "../CollectionItem/CollectionItem.component";
 
@@ -14,17 +15,26 @@ const COLLECTION_ID_MAP = {
 };
 
 function CollectionPage() {
-  const collections = useSelector((state) => state.shop.collections);
-  console.log(collections);
+  const params = useParams();
+  const collectionId = params.collectionId;
 
-  const collection = collections.find(
-    (collection) => collection.id === COLLECTION_ID_MAP["sneakers"]
-  );
-  console.log(collection);
+  const collections = useSelector((state) => state.shop.collections);
+  const collection = collections[collectionId];
+  const { title, items } = collection;
 
   return (
     <div className="collection-page">
-      <h2>Collection Page</h2>
+      <h2 className="title">{title}</h2>
+      <div className="items">
+        {items.map((item) => (
+          <CollectionItem
+            key={item.id}
+            name={item.name}
+            price={item.price}
+            imageUrl={item.imageUrl}
+          />
+        ))}
+      </div>
     </div>
   );
 }

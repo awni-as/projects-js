@@ -8,7 +8,9 @@ import HomePage from "./views/Home/HomePage/HomePage.component";
 import ShopPage from "./views/Shop/ShopPage/ShopPage.component";
 import SignInAndSignUpPage from "./views/SignInAndSignUp/SignInAndSignUpPage/SignInAndSignUpPage.component";
 import CheckoutPage from "./views/Checkout/CheckoutPage/CheckoutPage.component";
+import CollectionPage from "./views/Shop/CollectionPage/CollectionPage.component";
 import Header from "./components/layout/navigation/Header/Header.component";
+import CollectionsOverview from "./views/Shop/CollectionsOverview/CollectionsOverview.component";
 import { auth, createUserProfileDocument } from "./utils/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 
@@ -41,7 +43,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/shop/*" element={<ShopPage />} />
+        <Route path="/shop" element={<ShopPage />}>
+          <Route index element={<CollectionsOverview />} />
+          <Route path=":collectionId" element={<CollectionPage />} />
+        </Route>
         <Route
           path="/signIn"
           element={currentUser ? <Navigate to="/" /> : <SignInAndSignUpPage />}

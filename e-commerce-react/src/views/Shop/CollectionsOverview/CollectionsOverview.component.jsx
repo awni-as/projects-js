@@ -10,11 +10,11 @@ function CollectionsOverview() {
 
   return (
     <div className="collections-overview">
-      {collections.map((collection) => (
+      {Object.keys(collections).map((collection) => (
         <CollectionPreview
-          key={collection.id}
-          title={collection.title}
-          items={collection.items}
+          key={collections[collection].id}
+          title={collections[collection].title}
+          items={collections[collection].items}
         />
       ))}
     </div>
