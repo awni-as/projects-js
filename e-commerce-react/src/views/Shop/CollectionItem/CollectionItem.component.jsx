@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { addItem } from "../../../redux/cart/cart.actions";
 
-import CustomButton from "../../../components/UI/CustomButton/CustomButton.component";
+import CustomButton from "../../../components/UI/Buttons/CustomButton/CustomButton.component";
 
 import "./CollectionItem.styles.scss";
 

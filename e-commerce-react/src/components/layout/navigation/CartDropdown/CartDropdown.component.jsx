@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import CustomButton from "../../../UI/CustomButton/CustomButton.component";
+import CustomButton from "../../../UI/Buttons/CustomButton/CustomButton.component";
 import CartItem from "../CartItem/CartItem.component";
 import { toggleCartHidden } from "../../../../redux/cart/cart.actions";
 

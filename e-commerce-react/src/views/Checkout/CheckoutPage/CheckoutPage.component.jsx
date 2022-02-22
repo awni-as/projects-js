@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import CheckoutItem from "../CheckoutItem/CheckoutItem.component";
+import StripeButton from "../../../components/UI/Buttons/StripeButton/StripeButton.component";
 
 import "./CheckoutPage.styles.scss";
 
@@ -46,6 +47,7 @@ function CheckoutPage() {
       <div className="total">
         <span>TOTAL: ${cartTotal}</span>
       </div>
+      <StripeButton price={cartTotal} />
     </div>
   );
 }
