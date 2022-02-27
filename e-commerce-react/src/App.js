@@ -12,7 +12,7 @@ import CollectionPage from "./views/Shop/CollectionPage/CollectionPage.component
 import Header from "./components/layout/navigation/Header/Header.component";
 import CollectionsOverview from "./views/Shop/CollectionsOverview/CollectionsOverview.component";
 import { auth, createUserProfileDocument } from "./utils/firebase.utils";
-import { setCurrentUser } from "./redux/user/user.actions";
+import { userActions } from "./redux/user/user.actions";
 
 function App() {
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -26,10 +26,12 @@ function App() {
         // (user) => dispatch(setCurrentUser(user))
 
         userRef.onSnapshot((snapShot) => {
-          dispatch(setCurrentUser({ id: snapShot.id, ...snapShot.data() }));
+          dispatch(
+            userActions.setCurrentUser({ id: snapShot.id, ...snapShot.data() })
+          );
         });
       } else {
-        dispatch(setCurrentUser());
+        dispatch(userActions.setCurrentUser());
       }
     });
 

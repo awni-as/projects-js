@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { auth } from "../../../../utils/firebase.utils";
-import { setCurrentUser } from "../../../../redux/user/user.actions";
+import { userActions } from "../../../../redux/user/user.actions";
 
 import CartIcon from "../CartIcon/CartIcon.component";
 import CartDropdown from "../CartDropdown/CartDropdown.component";
@@ -26,7 +26,7 @@ function Header() {
     auth
       .signOut()
       .then(() => {
-        dispatch(setCurrentUser());
+        dispatch(userActions.setCurrentUser());
       })
       .catch((err) => alert(err.message));
   };

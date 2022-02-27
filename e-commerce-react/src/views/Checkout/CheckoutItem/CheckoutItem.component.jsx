@@ -2,9 +2,7 @@ import React from "react";
 
 import { useDispatch } from "react-redux";
 
-import { clearItemFromCart } from "../../../redux/cart/cart.actions";
-import { addItem } from "../../../redux/cart/cart.actions";
-import { removeItem } from "../../../redux/cart/cart.actions";
+import { cartActions } from "../../../redux/cart/cart.actions";
 
 import "./CheckoutItem.styles.scss";
 
@@ -12,15 +10,15 @@ const CheckoutItem = (props) => {
   const dispatch = useDispatch();
 
   const clearItemHandler = () => {
-    dispatch(clearItemFromCart(props.cartItem));
+    dispatch(cartActions.clearItemFromCart(props.cartItem));
   };
 
   const addItemHandler = () => {
-    dispatch(addItem(props.cartItem));
+    dispatch(cartActions.addItem(props.cartItem));
   };
 
   const removeItemHandler = () => {
-    dispatch(removeItem(props.cartItem));
+    dispatch(cartActions.removeItem(props.cartItem));
   };
 
   return (

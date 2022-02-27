@@ -1,8 +1,3 @@
-import { SET_CURRENT_USER } from "./user.types";
+import userSlice from "./user.slice";
 
-export const setCurrentUser = (user) => {
-  return {
-    type: SET_CURRENT_USER,
-    payload: user,
-  };
-};
+export const userActions = userSlice.actions;

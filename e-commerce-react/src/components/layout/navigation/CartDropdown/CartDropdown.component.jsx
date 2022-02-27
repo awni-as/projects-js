@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import CustomButton from "../../../UI/Buttons/CustomButton/CustomButton.component";
 import CartItem from "../CartItem/CartItem.component";
-import { toggleCartHidden } from "../../../../redux/cart/cart.actions";
+import { cartActions } from "../../../../redux/cart/cart.actions";
 
 import "./CartDropdown.styles.scss";
 
@@ -16,7 +16,7 @@ function CartDropdown() {
 
   function handleClick() {
     navigate("checkout");
-    dispatch(toggleCartHidden());
+    dispatch(cartActions.toggleCartHidden());
   }
 
   return (

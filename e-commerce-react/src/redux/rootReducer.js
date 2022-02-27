@@ -2,10 +2,10 @@ import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import userReducer from "./user/user.reducer";
-import cartReducer from "./cart/cart.reducer";
-import directoryReducer from "./directory/directory.reducer";
-import shopReducer from "./shop/shop.reducer";
+import userSlice from "./user/user.slice";
+import cartSlice from "./cart/cart.slice";
+import directorySlice from "./directory/directory.slice";
+import shopSlice from "./shop/shop.slice";
 
 const persistConfig = {
   key: "root",
@@ -14,10 +14,10 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  user: userReducer,
-  cart: cartReducer,
-  directory: directoryReducer,
-  shop: shopReducer,
+  user: userSlice.reducer,
+  cart: cartSlice.reducer,
+  directory: directorySlice.reducer,
+  shop: shopSlice.reducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { addItem } from "../../../redux/cart/cart.actions";
+import { cartActions } from "../../../redux/cart/cart.actions";
 
 import CustomButton from "../../../components/UI/Buttons/CustomButton/CustomButton.component";
 
@@ -11,7 +11,7 @@ function CollectionItem(props) {
   const dispatch = useDispatch();
 
   const addItemHandler = () => {
-    dispatch(addItem(props.item));
+    dispatch(cartActions.addItem(props.item));
   };
 
   return (
