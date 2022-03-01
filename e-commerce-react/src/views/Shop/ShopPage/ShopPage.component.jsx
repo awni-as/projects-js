@@ -17,7 +17,6 @@ function ShopPage(props) {
 
     collectionRef.onSnapshot(async (snapShot) => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapShot);
-      console.log(collectionsMap);
       dispatch(shopActions.updateCollections(collectionsMap));
       props.onCompleteLoading();
     });

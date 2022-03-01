@@ -24,6 +24,7 @@ function CollectionPage() {
             name={item.name}
             price={item.price}
             imageUrl={item.imageUrl}
+            item={item}
           />
         ))}
       </div>
