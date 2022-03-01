@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -11,11 +11,21 @@ import CheckoutPage from "./views/Checkout/CheckoutPage/CheckoutPage.component";
 import CollectionPage from "./views/Shop/CollectionPage/CollectionPage.component";
 import Header from "./components/layout/navigation/Header/Header.component";
 import CollectionsOverview from "./views/Shop/CollectionsOverview/CollectionsOverview.component";
-import { auth, createUserProfileDocument } from "./utils/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+  // addCollectionAndDocuments,
+} from "./utils/firebase.utils";
 import { userActions } from "./redux/user/user.actions";
+import WithSpinner from "./components/UI/WithSpinner/WithSpinner.component";
 
-function App() {
+const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
+const CollectionPageWithSpinner = WithSpinner(CollectionPage);
+
+function App(props) {
   const currentUser = useSelector((state) => state.user.currentUser);
+  // const collectionsArray = useSelector((state) => state.shop.collections);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,19 +45,40 @@ function App() {
       }
     });
 
+    // addCollectionAndDocuments(
+    //   "collections",
+    //   Object.keys(collectionsArray).map(
+    //     (keyName, i) => collectionsArray[keyName]
+    //   )
+    // );
+
     return () => {
       unsubscribeFromAuth();
     };
+    // }, [dispatch, collectionsArray]);
   }, [dispatch]);
+
+  function loadingHandler() {
+    setLoading(false);
+  }
 
   return (
     <div>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<ShopPage />}>
-          <Route index element={<CollectionsOverview />} />
-          <Route path=":collectionId" element={<CollectionPage />} />
+        <Route
+          path="/shop"
+          element={<ShopPage onCompleteLoading={loadingHandler} />}
+        >
+          <Route
+            index
+            element={<CollectionsOverviewWithSpinner isLoading={loading} />}
+          />
+          <Route
+            path=":collectionId"
+            element={<CollectionPageWithSpinner isLoading={loading} />}
+          />
         </Route>
         <Route
           path="/signIn"

@@ -10,13 +10,15 @@ function CollectionsOverview() {
 
   return (
     <div className="collections-overview">
-      {Object.keys(collections).map((collection) => (
-        <CollectionPreview
-          key={collections[collection].id}
-          title={collections[collection].title}
-          items={collections[collection].items}
-        />
-      ))}
+      {collections
+        ? Object.keys(collections).map((collection) => (
+            <CollectionPreview
+              key={collections[collection].id}
+              title={collections[collection].title}
+              items={collections[collection].items}
+            />
+          ))
+        : []}
     </div>
   );
 }
