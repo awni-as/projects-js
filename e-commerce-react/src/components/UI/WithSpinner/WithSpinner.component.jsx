@@ -1,15 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import { SpinnerContainer, SpinnerOverlay } from "./WithSpinner.styles";
 
 const WithSpinner = (WrappedComponent) => {
-  function Spinner(props) {
-    return props.isLoading ? (
+  function Spinner() {
+    const isFetching = useSelector((state) => state.shop.isFetching);
+
+    return isFetching ? (
       <SpinnerOverlay>
         <SpinnerContainer />
       </SpinnerOverlay>
     ) : (
-      <WrappedComponent onCompleteLoading={props.onCompleteLoading} />
+      <WrappedComponent />
     );
   }
   return Spinner;
