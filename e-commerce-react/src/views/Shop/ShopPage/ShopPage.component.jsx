@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { fetchCollectionsStartAsync } from "../../../redux/shop/shop.actions";
+// import { fetchCollectionsStartAsync } from "../../../redux/shop/shop.actions";
+import { shopActions } from "../../../redux/shop/shop.slice";
 
 function ShopPage() {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ function ShopPage() {
   // const unsubscribeFromSnapshot = null;
 
   useEffect(() => {
-    dispatch(fetchCollectionsStartAsync());
+    dispatch(shopActions.fetchCollectionsStart());
     // const collectionRef = db.collection("collections");
 
     // const fetchData = async () => {
