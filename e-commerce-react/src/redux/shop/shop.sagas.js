@@ -17,18 +17,6 @@ export function* fetchCollectionsAsync() {
   } catch (error) {
     yield put(shopActions.fetchCollectionsFailure(error.message));
   }
-
-  // dispatch(shopActions.fetchCollectionsStart());
-
-  // collectionRef
-  //   .get()
-  //   .then((snapShot) => {
-  //     const collectionsMap = convertCollectionsSnapshotToMap(snapShot);
-  //     dispatch(shopActions.fetchCollectionsSuccess(collectionsMap));
-  //   })
-  //   .catch((error) =>
-  //     dispatch(shopActions.fetchCollectionsFailure(error.message))
-  //   );
 }
 
 export function* fetchCollectionsStart() {

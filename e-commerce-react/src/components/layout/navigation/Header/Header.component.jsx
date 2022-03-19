@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { auth } from "../../../../utils/firebase.utils";
 import { userActions } from "../../../../redux/user/user.actions";
 
 import CartIcon from "../CartIcon/CartIcon.component";
@@ -23,12 +22,7 @@ function Header() {
   const dispatch = useDispatch();
 
   const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        dispatch(userActions.setCurrentUser());
-      })
-      .catch((err) => alert(err.message));
+    dispatch(userActions.signOutStart());
   };
 
   return (

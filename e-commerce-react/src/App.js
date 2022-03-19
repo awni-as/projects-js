@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import "./App.css";
 
@@ -12,8 +12,15 @@ import CollectionPageContainer from "./views/Shop/CollectionPage/CollectionPage.
 import Header from "./components/layout/navigation/Header/Header.component";
 import CollectionsOverviewContainer from "./views/Shop/CollectionsOverview/CollectionsOverview.container";
 
+import { userActions } from "./redux/user/user.slice";
+
 function App() {
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.currentUser);
+
+  useEffect(() => {
+    dispatch(userActions.checkUserSession());
+  }, [dispatch]);
 
   return (
     <div>
