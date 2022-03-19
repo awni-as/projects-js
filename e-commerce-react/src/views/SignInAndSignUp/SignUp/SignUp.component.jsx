@@ -8,7 +8,7 @@ import "./SignUp.styles.scss";
 
 import { userActions } from "../../../redux/user/user.slice";
 
-const initialUserState = {
+const defaultFormFields = {
   displayName: "",
   email: "",
   password: "",
@@ -17,33 +17,29 @@ const initialUserState = {
 
 function SignUp() {
   const dispatch = useDispatch();
-  const [newUser, setNewUser] = useState(initialUserState);
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
+
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
+  };
 
   async function signUpFormSubmissionHandler(event) {
     event.preventDefault();
 
-    if (newUser.password !== newUser.confirmPassword) {
+    if (password !== confirmPassword) {
       alert("Passwords Don't Match!");
       return;
     }
 
-    dispatch(userActions.signUpStart(newUser));
+    dispatch(userActions.signUpStart(formFields));
+    resetFormFields();
   }
 
-  function nameChangeHandler(event) {
-    setNewUser({ ...newUser, displayName: event.target.value });
-  }
+  function changeHandler(event) {
+    const { name, value } = event.target;
 
-  function emailChangeHandler(event) {
-    setNewUser({ ...newUser, email: event.target.value });
-  }
-
-  function passwordChangeHandler(event) {
-    setNewUser({ ...newUser, password: event.target.value });
-  }
-
-  function confirmPasswordChangeHandler(event) {
-    setNewUser({ ...newUser, confirmPassword: event.target.value });
+    setFormFields({ ...formFields, [name]: value });
   }
 
   return (
@@ -55,32 +51,32 @@ function SignUp() {
         <FormInput
           type="text"
           name="displayName"
-          value={newUser.displayName}
-          onChange={nameChangeHandler}
+          value={displayName}
+          onChange={changeHandler}
           label="Display Name"
           required
         ></FormInput>
         <FormInput
           type="text"
-          name="displayName"
-          value={newUser.email}
-          onChange={emailChangeHandler}
+          name="email"
+          value={email}
+          onChange={changeHandler}
           label="Email"
           required
         ></FormInput>
         <FormInput
           type="password"
           name="password"
-          value={newUser.password}
-          onChange={passwordChangeHandler}
+          value={password}
+          onChange={changeHandler}
           label="Password"
           required
         ></FormInput>
         <FormInput
           type="password"
           name="confirmPassword"
-          value={newUser.confirmPassword}
-          onChange={confirmPasswordChangeHandler}
+          value={confirmPassword}
+          onChange={changeHandler}
           label="Confirm Password"
           required
         ></FormInput>
