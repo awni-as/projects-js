@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import "./App.css";
+import { GlobalStyle } from "./global.styles";
 
 import HomePage from "./views/Home/HomePage/HomePage.component";
 import ShopPage from "./views/Shop/ShopPage/ShopPage.component";
@@ -25,6 +25,7 @@ function App() {
 
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />

@@ -2,13 +2,17 @@ import React from "react";
 
 import CollectionItem from "../CollectionItem/CollectionItem.component";
 
-import "./CollectionPreview.styles.scss";
+import {
+  CollectionPreviewContainer,
+  TitleContainer,
+  PreviewContainer,
+} from "./CollectionPreview.styles";
 
 function CollectionPreview(props) {
   return (
-    <div className="collection-preview">
-      <h1 className="title">{props.title}</h1>
-      <div className="preview">
+    <CollectionPreviewContainer>
+      <TitleContainer>{props.title}</TitleContainer>
+      <PreviewContainer>
         {props.items
           .filter((item, idx) => idx < 4)
           .map((item) => (
@@ -20,8 +24,8 @@ function CollectionPreview(props) {
               item={item}
             />
           ))}
-      </div>
-    </div>
+      </PreviewContainer>
+    </CollectionPreviewContainer>
   );
 }
 
