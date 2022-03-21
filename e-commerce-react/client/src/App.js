@@ -4,14 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { GlobalStyle } from "./global.styles";
 
-import HomePage from "./views/Home/HomePage/HomePage.component";
-import ShopPage from "./views/Shop/ShopPage/ShopPage.component";
-import SignInAndSignUpPage from "./views/SignInAndSignUp/SignInAndSignUpPage/SignInAndSignUpPage.component";
-import CheckoutPage from "./views/Checkout/CheckoutPage/CheckoutPage.component";
 import CollectionPageContainer from "./views/Shop/CollectionPage/CollectionPage.container";
 import Header from "./components/layout/navigation/Header/Header.component";
 import CollectionsOverviewContainer from "./views/Shop/CollectionsOverview/CollectionsOverview.container";
-import Contact from "./views/Contact/Contact.component";
+
+import HomePage from "./views/Home/HomePage/HomePage.component";
+import SignInAndSignUpPage from "./views/SignInAndSignUp/SignInAndSignUpPage/SignInAndSignUpPage.component";
+import ContactPage from "./views/Contact/ContactPage.component";
+import ShopPage from "./views/Shop/ShopPage/ShopPage.component";
+import CheckoutPage from "./views/Checkout/CheckoutPage/CheckoutPage.component";
 
 import { userActions } from "./redux/user/user.slice";
 
@@ -38,7 +39,7 @@ function App() {
           element={currentUser ? <Navigate to="/" /> : <SignInAndSignUpPage />}
         />
         <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </div>
   );

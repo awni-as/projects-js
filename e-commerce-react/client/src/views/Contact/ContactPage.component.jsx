@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import FormInput from "../../components/UI/Forms/FormInput.component";
 import CustomButton from "../../components/UI/Buttons/CustomButton/CustomButton.component";
 
-import "./Contact.styles.scss";
+import "./ContactPage.styles.scss";
 
 const defaultFormFields = {
   name: "",
@@ -11,7 +11,7 @@ const defaultFormFields = {
   message: "",
 };
 
-function Contact() {
+function ContactPage() {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { name, email, message } = formFields;
 
@@ -56,4 +56,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactPage;

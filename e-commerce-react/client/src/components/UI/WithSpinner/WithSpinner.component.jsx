@@ -1,21 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { SpinnerContainer, SpinnerOverlay } from "./WithSpinner.styles";
+import Spinner from "../Spinner/Spinner.component";
 
 const WithSpinner = (WrappedComponent) => {
-  function Spinner() {
+  function LoadingSpinner() {
     const isFetching = useSelector((state) => state.shop.isFetching);
 
-    return isFetching ? (
-      <SpinnerOverlay>
-        <SpinnerContainer />
-      </SpinnerOverlay>
-    ) : (
-      <WrappedComponent />
-    );
+    return isFetching ? <Spinner /> : <WrappedComponent />;
   }
-  return Spinner;
+  return LoadingSpinner;
 };
 
 export default WithSpinner;
