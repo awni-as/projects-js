@@ -11,6 +11,7 @@ export const MenuItemContainer = styled.div`
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
+  border-radius: 12px;
   &:hover {
     cursor: pointer;
     & .background-image {
@@ -51,6 +52,7 @@ export const ContentContainer = styled.div`
   background-color: white;
   opacity: 0.7;
   position: absolute;
+  border-radius: 6px;
 `;
 
 export const ContentTitle = styled.span`

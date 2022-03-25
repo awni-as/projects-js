@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import "./Directory.styles.scss";
+import { DirectoryMenu } from "./Directory.styles";
 
 import MenuItem from "../MenuItem/MenuItem.component";
 
@@ -9,7 +9,7 @@ function Directory() {
   const sections = useSelector((state) => state.directory.sections);
 
   return (
-    <div className="directory-menu">
+    <DirectoryMenu>
       {sections.map((section) => (
         <MenuItem
           key={section.id}
@@ -19,7 +19,7 @@ function Directory() {
           linkUrl={section.linkUrl}
         />
       ))}
-    </div>
+    </DirectoryMenu>
   );
 }
 
