@@ -2,11 +2,15 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import CustomButton from "../../../UI/Buttons/CustomButton/CustomButton.component";
 import CartItem from "../CartItem/CartItem.component";
 import { cartActions } from "../../../../redux/cart/cart.actions";
 
-import "./CartDropdown.styles.scss";
+import {
+  CartDropdownContainer,
+  CartDropdownButton,
+  EmptyMessageContainer,
+  CartItemsContainer,
+} from "./CartDropdown.styles";
 
 function CartDropdown() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -20,8 +24,8 @@ function CartDropdown() {
   }
 
   return (
-    <div className="cart-dropdown">
-      <div className="cart-items">
+    <CartDropdownContainer>
+      <CartItemsContainer>
         {cartItems.length ? (
           cartItems.map((cartItem) => (
             <CartItem
@@ -32,15 +36,15 @@ function CartDropdown() {
             />
           ))
         ) : (
-          <span className="empty-message">Your cart is empty</span>
+          <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
         )}
-      </div>
-      <CustomButton
+      </CartItemsContainer>
+      <CartDropdownButton
         type="submit"
         buttonText="GO TO CHECKOUT"
         onClick={handleClick}
       />
-    </div>
+    </CartDropdownContainer>
   );
 }
 
