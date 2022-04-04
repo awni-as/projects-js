@@ -3,9 +3,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { GlobalStyle } from "./global.styles";
+import "./App.css";
 
 import CollectionPageContainer from "./views/Shop/CollectionPage/CollectionPage.container";
-import Header from "./components/layout/navigation/Header/Header.component";
+import Navigation from "./components/layout/navigation/Navigation/Navigation.component";
 import CollectionsOverviewContainer from "./views/Shop/CollectionsOverview/CollectionsOverview.container";
 import Spinner from "./components/UI/Spinner/Spinner.component";
 import ErrorBoundary from "./components/UI/ErrorBoundary/ErrorBoundary.component";
@@ -28,31 +29,33 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="app-layout">
       <GlobalStyle />
-      <Header />
-      <ErrorBoundary>
-        <Suspense fallback={<Spinner />}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/shop" element={<ShopPage />}>
-              <Route index element={<CollectionsOverviewContainer />} />
+      <div className="app-layout app-layout-inner">
+        <Navigation />
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/shop" element={<ShopPage />}>
+                <Route index element={<CollectionsOverviewContainer />} />
+                <Route
+                  path=":collectionId"
+                  element={<CollectionPageContainer />}
+                />
+              </Route>
               <Route
-                path=":collectionId"
-                element={<CollectionPageContainer />}
+                path="/signIn"
+                element={
+                  currentUser ? <Navigate to="/" /> : <SignInAndSignUpPage />
+                }
               />
-            </Route>
-            <Route
-              path="/signIn"
-              element={
-                currentUser ? <Navigate to="/" /> : <SignInAndSignUpPage />
-              }
-            />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
+      </div>
     </div>
   );
 }

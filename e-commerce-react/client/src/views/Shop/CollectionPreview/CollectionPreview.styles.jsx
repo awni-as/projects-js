@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const CollectionPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin: 24px 32px;
+  padding: 24px;
   @media screen and (max-width: 800px) {
     align-items: center;
   }

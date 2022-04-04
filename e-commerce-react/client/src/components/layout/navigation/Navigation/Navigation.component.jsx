@@ -14,9 +14,9 @@ import {
   OptionsContainer,
   OptionLink,
   OptionDiv,
-} from "./Header.styles";
+} from "./Navigation.styles";
 
-function Header() {
+function Navigation() {
   const currentUser = useSelector((state) => state.user.currentUser);
   const hidden = useSelector((state) => state.cart.hidden);
   const dispatch = useDispatch();
@@ -31,12 +31,12 @@ function Header() {
         <Logo className="logo" />
       </LogoContainer>
       <OptionsContainer>
-        <OptionLink to="/shop">SHOP</OptionLink>
-        <OptionLink to="/contact">CONTACT</OptionLink>
+        <OptionLink to="/shop">Shop</OptionLink>
+        <OptionLink to="/contact">Contact</OptionLink>
         {currentUser ? (
-          <OptionDiv onClick={handleSignOut}>SIGN OUT</OptionDiv>
+          <OptionDiv onClick={handleSignOut}>Sign out</OptionDiv>
         ) : (
-          <OptionLink to="/signIn">SIGN IN</OptionLink>
+          <OptionLink to="/signIn">Sign in</OptionLink>
         )}
         <CartIcon />
       </OptionsContainer>
@@ -45,4 +45,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Navigation;
