@@ -6,7 +6,7 @@ import { userActions } from "../../../../redux/user/user.actions";
 import CartIcon from "../CartIcon/CartIcon.component";
 import CartDropdown from "../CartDropdown/CartDropdown.component";
 
-import { ReactComponent as Logo } from "../../../../assets/crown.svg";
+import { ReactComponent as Logo } from "../../../../assets/slice.svg";
 
 import {
   HeaderContainer,
