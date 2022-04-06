@@ -29,7 +29,7 @@ function MenuItem(props) {
       ></BackgroundImageContainer>
       <ContentContainer className="content">
         <ContentTitle>{props.title.toUpperCase()}</ContentTitle>
-        <ContentSubtitle>SHOP NOW</ContentSubtitle>
+        <ContentSubtitle>Shop Now</ContentSubtitle>
       </ContentContainer>
     </MenuItemContainer>
   );

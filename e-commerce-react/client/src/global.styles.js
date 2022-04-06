@@ -2,7 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 body {
-  font-family: "ProximaNova-Regular";
+  background-color: #f5f7fa;
+  font-family: "Mulish";
   font-size: 14px;
   letter-spacing: -0.16px;
   line-height: 20px;
