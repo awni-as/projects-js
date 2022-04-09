@@ -14,6 +14,8 @@ import {
   OptionsContainer,
   OptionLink,
   OptionDiv,
+  SignInLink,
+  SignUpLink,
 } from "./Navigation.styles";
 
 function Navigation() {
@@ -37,9 +39,9 @@ function Navigation() {
         {currentUser ? (
           <OptionDiv onClick={handleSignOut}>Sign out</OptionDiv>
         ) : (
-          <OptionLink to="/login">Sign in</OptionLink>
+          <SignInLink to="/login">Log In</SignInLink>
         )}
-        {currentUser ? null : <OptionLink to="/register">Sign Up</OptionLink>}
+        {currentUser ? null : <SignUpLink to="/register">Sign Up</SignUpLink>}
       </OptionsContainer>
       {hidden ? null : <CartDropdown />}
     </HeaderContainer>

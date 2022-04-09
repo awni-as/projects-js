@@ -54,3 +54,30 @@ export const OptionLink = styled(Link)`
 export const OptionDiv = styled.div`
   ${OptionContainerStyles}
 `;
+
+export const SignInLink = styled(Link)`
+  ${OptionContainerStyles}
+  background-color: white;
+  color: #00cc9f;
+  border: 1px solid #00cc9f;
+  border-radius: 6px;
+  margin-right: 20px;
+  margin-left: 20px;
+  &:hover {
+    background-color: #00cc9f;
+    color: white;
+  }
+`;
+
+export const SignUpLink = styled(Link)`
+  ${OptionContainerStyles}
+  background-color: #00cc9f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-right: 8px;
+  &:hover {
+    background-color: #009977;
+    color: white;
+  }
+`;

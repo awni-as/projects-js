@@ -32,8 +32,8 @@ function App() {
   return (
     <div className="app-layout">
       <GlobalStyle />
+      <Navigation />
       <div className="app-layout app-layout-inner">
-        <Navigation />
         <ErrorBoundary>
           <Suspense fallback={<Spinner />}>
             <Routes>

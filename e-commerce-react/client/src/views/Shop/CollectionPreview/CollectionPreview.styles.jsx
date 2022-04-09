@@ -4,18 +4,20 @@ export const CollectionPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 24px 32px;
-  padding: 24px;
+  padding: 0 24px;
   @media screen and (max-width: 800px) {
     align-items: center;
   }
 `;
 
 export const TitleContainer = styled.h1`
-  font-size: 28px;
-  margin-bottom: 25px;
+  font-size: 38px;
   cursor: pointer;
+  display: flex;
+  padding-bottom: 16px;
+  justify-content: center;
   &:hover {
-    color: grey;
+    color: #00cc9f;
   }
 `;
 
