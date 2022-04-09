@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const CartIconContainer = styled.div`
   width: 45px;
@@ -8,6 +8,12 @@ export const CartIconContainer = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+`;
+
+const bounceAnimation = keyframes`
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
 `;
 
 export const ItemCount = styled.span`
@@ -26,4 +32,8 @@ export const ItemCount = styled.span`
   min-width: 2em;
   white-space: nowrap;
   margin: 0;
+  animation-name: ${bounceAnimation};
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  transition: opacity 0.5s ease-in 0s;
 `;
