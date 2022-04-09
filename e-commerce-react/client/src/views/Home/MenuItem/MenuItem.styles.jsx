@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const MenuItemContainer = styled.div`
-  height: ${({ size }) => (size ? "480px" : "340px")};
+  height: ${(props) => (props.size ? "480px" : "340px")};
   min-width: 30%;
-  overflow: hidden;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 2px solid #6e7191;
   margin: 0 7.5px 15px;
   overflow: hidden;
   border-radius: 12px;
@@ -38,7 +37,7 @@ export const BackgroundImageContainer = styled.div`
   height: 100%;
   background-size: cover;
   background-position: center;
-  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+  background-image: ${({ imageURL }) => `url(${imageURL})`};
 `;
 
 export const ContentContainer = styled.div`

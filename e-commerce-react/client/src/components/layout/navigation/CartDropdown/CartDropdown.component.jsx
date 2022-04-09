@@ -41,7 +41,7 @@ function CartDropdown() {
       </CartItemsContainer>
       <CartDropdownButton
         type="submit"
-        buttonText="GO TO CHECKOUT"
+        buttonText="Checkout"
         onClick={handleClick}
       />
     </CartDropdownContainer>

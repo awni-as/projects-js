@@ -12,9 +12,9 @@ function ShopPage() {
   }, [dispatch]);
 
   return (
-    <div className="shop-page">
+    <>
       <Outlet />
-    </div>
+    </>
   );
 }
 

@@ -28,7 +28,9 @@ function MenuItem(props) {
         }}
       ></BackgroundImageContainer>
       <ContentContainer className="content">
-        <ContentTitle>{props.title.toUpperCase()}</ContentTitle>
+        <ContentTitle>
+          {props.title.charAt(0).toUpperCase() + props.title.slice(1)}
+        </ContentTitle>
         <ContentSubtitle>Shop Now</ContentSubtitle>
       </ContentContainer>
     </MenuItemContainer>

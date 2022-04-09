@@ -6,12 +6,14 @@ import CollectionItem from "../CollectionItem/CollectionItem.component";
 
 import "./CollectionPage.styles.scss";
 
+const collectionsArray = ["womens", "hats", "jackets", "sneakers", "mens"];
+
 function CollectionPage() {
   const params = useParams();
   const collectionId = params.collectionId;
 
   const collections = useSelector((state) => state.shop.collections);
-  const collection = collections[collectionId];
+  const collection = collections[collectionsArray.indexOf(collectionId)];
   const { title, items } = collection;
 
   return (

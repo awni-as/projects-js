@@ -33,12 +33,13 @@ function Navigation() {
       <OptionsContainer>
         <OptionLink to="/shop">Shop</OptionLink>
         <OptionLink to="/contact">Contact</OptionLink>
+        <CartIcon />
         {currentUser ? (
           <OptionDiv onClick={handleSignOut}>Sign out</OptionDiv>
         ) : (
-          <OptionLink to="/signIn">Sign in</OptionLink>
+          <OptionLink to="/login">Sign in</OptionLink>
         )}
-        <CartIcon />
+        {currentUser ? null : <OptionLink to="/register">Sign Up</OptionLink>}
       </OptionsContainer>
       {hidden ? null : <CartDropdown />}
     </HeaderContainer>

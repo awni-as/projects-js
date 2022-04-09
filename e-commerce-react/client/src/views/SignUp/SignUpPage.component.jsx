@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import FormInput from "../../../components/UI/Forms/FormInput.component";
-import CustomButton from "../../../components/UI/Buttons/CustomButton/CustomButton.component";
+import FormInput from "../../components/UI/Forms/FormInput.component";
+import CustomButton from "../../components/UI/Buttons/CustomButton/CustomButton.component";
 
-import "./SignUp.styles.scss";
+import { SignUp } from "./SignUpPage.styles";
 
-import { userActions } from "../../../redux/user/user.slice";
+import { userActions } from "../../redux/user/user.slice";
 
 const defaultFormFields = {
   displayName: "",
@@ -15,7 +15,7 @@ const defaultFormFields = {
   confirmPassword: "",
 };
 
-function SignUp() {
+function SignUpPage() {
   const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
@@ -43,8 +43,7 @@ function SignUp() {
   }
 
   return (
-    <div className="sign-up">
-      <h2 className="title">I do not have an account</h2>
+    <SignUp>
       <span>Sign up with your email and password</span>
 
       <form className="sign-up-form" onSubmit={signUpFormSubmissionHandler}>
@@ -82,8 +81,8 @@ function SignUp() {
         ></FormInput>
         <CustomButton type="submit" buttonText="Sign Up" />
       </form>
-    </div>
+    </SignUp>
   );
 }
 
-export default SignUp;
+export default SignUpPage;

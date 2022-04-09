@@ -12,7 +12,8 @@ import Spinner from "./components/UI/Spinner/Spinner.component";
 import ErrorBoundary from "./components/UI/ErrorBoundary/ErrorBoundary.component";
 
 import HomePage from "./views/Home/HomePage/HomePage.component";
-import SignInAndSignUpPage from "./views/SignInAndSignUp/SignInAndSignUpPage/SignInAndSignUpPage.component";
+import SignIn from "./views/SignInAndSignUp/SignInAndSignUpPage/SignInPage.component";
+import SignUp from "./views/SignUp/SignUpPage.component";
 import ContactPage from "./views/Contact/ContactPage.component";
 import CheckoutPage from "./views/Checkout/CheckoutPage/CheckoutPage.component";
 
@@ -45,10 +46,12 @@ function App() {
                 />
               </Route>
               <Route
-                path="/signIn"
-                element={
-                  currentUser ? <Navigate to="/" /> : <SignInAndSignUpPage />
-                }
+                path="/login"
+                element={currentUser ? <Navigate to="/" /> : <SignIn />}
+              />
+              <Route
+                path="/register"
+                element={currentUser ? <Navigate to="/" /> : <SignUp />}
               />
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/contact" element={<ContactPage />} />
