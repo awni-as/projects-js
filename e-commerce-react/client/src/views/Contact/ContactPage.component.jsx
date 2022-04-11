@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import FormInput from "../../components/UI/Forms/FormInput.component";
 import CustomButton from "../../components/UI/Buttons/CustomButton/CustomButton.component";
 
-import "./ContactPage.styles.scss";
+import { ContactPageContainer, Title } from "./ContactPage.styles";
 
 const defaultFormFields = {
   name: "",
@@ -31,8 +31,8 @@ function ContactPage() {
   }
 
   return (
-    <div className="contact">
-      <h1>Send us a message</h1>
+    <ContactPageContainer>
+      <Title>Send us a message</Title>
       <form onSubmit={contactFormSubmissionHandler}>
         <FormInput
           type="text"
@@ -50,9 +50,17 @@ function ContactPage() {
           label="Email"
           required
         ></FormInput>
+        <FormInput
+          type="message"
+          name="message"
+          value={message}
+          onChange={changeHandler}
+          label="Message"
+          required
+        ></FormInput>
         <CustomButton type="submit" buttonText="Send" />
       </form>
-    </div>
+    </ContactPageContainer>
   );
 }
 

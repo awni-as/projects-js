@@ -10,12 +10,8 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    googleSignInStart(state) {
-      state.isLoading = true;
-    },
-    emailSignInStart(state, action) {
-      state.isLoading = true;
-    },
+    googleSignInStart() {},
+    emailSignInStart() {},
     signInSuccess(state, action) {
       state.currentUser = action.payload;
       state.errorMessage = null;
@@ -36,9 +32,7 @@ const userSlice = createSlice({
     signOutFailure(state, action) {
       state.errorMessage = action.payload;
     },
-    signUpStart(state) {
-      state.isLoading = true;
-    },
+    signUpStart() {},
     signUpSuccess(state, action) {
       state.isLoading = true;
     },
