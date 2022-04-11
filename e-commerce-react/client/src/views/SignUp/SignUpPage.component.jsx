@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import FormInput from "../../components/UI/Forms/FormInput.component";
 import CustomButton from "../../components/UI/Buttons/CustomButton/CustomButton.component";
 
-import { SignUp } from "./SignUpPage.styles";
+import { SignUpContainer, Title } from "./SignUpPage.styles";
 
 import { userActions } from "../../redux/user/user.slice";
 
@@ -24,6 +24,12 @@ function SignUpPage() {
     setFormFields(defaultFormFields);
   };
 
+  function changeHandler(event) {
+    const { name, value } = event.target;
+
+    setFormFields({ ...formFields, [name]: value });
+  }
+
   async function signUpFormSubmissionHandler(event) {
     event.preventDefault();
 
@@ -36,15 +42,9 @@ function SignUpPage() {
     resetFormFields();
   }
 
-  function changeHandler(event) {
-    const { name, value } = event.target;
-
-    setFormFields({ ...formFields, [name]: value });
-  }
-
   return (
-    <SignUp>
-      <span>Sign up with your email and password</span>
+    <SignUpContainer>
+      <Title>Let's get started!</Title>
 
       <form className="sign-up-form" onSubmit={signUpFormSubmissionHandler}>
         <FormInput
@@ -81,7 +81,7 @@ function SignUpPage() {
         ></FormInput>
         <CustomButton type="submit" buttonText="Sign Up" />
       </form>
-    </SignUp>
+    </SignUpContainer>
   );
 }
 

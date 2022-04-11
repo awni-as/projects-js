@@ -22,6 +22,14 @@ export const SignInContainer = styled.div`
   }
 `;
 
+export const SignUpText = styled.div`
+  margin-top: 16px;
+`;
+
+export const Separator = styled.hr`
+  margin: 16px 0;
+`;
+
 export const Title = styled.span`
   font-size: 24px;
 `;

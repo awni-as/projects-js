@@ -7,7 +7,12 @@ import CustomButton from "../../components/UI/Buttons/CustomButton/CustomButton.
 
 import { userActions } from "../../redux/user/user.slice";
 
-import { SignInContainer, Title } from "./SignInPage.styles";
+import {
+  SignInContainer,
+  Title,
+  SignUpText,
+  Separator,
+} from "./SignInPage.styles";
 
 const defaultFormFields = {
   email: "",
@@ -35,44 +40,44 @@ function SignIn() {
     dispatch(userActions.emailSignInStart(formFields));
     resetFormFields();
   }
+
+  function googleSignInHandler() {
+    dispatch(userActions.googleSignInStart());
+  }
+
   return (
     <SignInContainer>
-      <div className="sign-in">
-        <Title>Welcome Back!</Title>
+      <Title>Welcome Back!</Title>
 
-        <form onSubmit={signInFormSubmissionHandler}>
-          <FormInput
-            label="Email"
-            name="email"
-            type="email"
-            onChange={changeHandler}
-            value={email}
-            required
-          />
-          <FormInput
-            label="Password"
-            name="password"
-            type="password"
-            onChange={changeHandler}
-            value={password}
-            required
-          />
-          <div className="buttons">
-            <CustomButton type="submit" buttonText="Sign In to your account" />
-          </div>
-          <div>
-            Don't have an account? <Link to="/register">Sign up now</Link>
-          </div>
-          <div className="buttons">
-            <CustomButton
-              type="button"
-              onClick={() => dispatch(userActions.googleSignInStart())}
-              buttonText="Continue With Google"
-              isGoogleSignIn
-            />
-          </div>
-        </form>
-      </div>
+      <form onSubmit={signInFormSubmissionHandler}>
+        <FormInput
+          label="Email"
+          name="email"
+          type="email"
+          onChange={changeHandler}
+          value={email}
+          required
+        />
+        <FormInput
+          label="Password"
+          name="password"
+          type="password"
+          onChange={changeHandler}
+          value={password}
+          required
+        />
+        <CustomButton type="submit" buttonText="Sign in to your account" />
+        <SignUpText>
+          Don't have an account? <Link to="/register">Sign up now</Link>
+        </SignUpText>
+        <Separator />
+        <CustomButton
+          type="button"
+          onClick={googleSignInHandler}
+          buttonText="Continue With Google"
+          isGoogleSignIn
+        />
+      </form>
     </SignInContainer>
   );
 }
