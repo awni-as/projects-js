@@ -12,7 +12,7 @@ import Spinner from "./components/UI/Spinner/Spinner.component";
 import ErrorBoundary from "./components/UI/ErrorBoundary/ErrorBoundary.component";
 
 import HomePage from "./views/Home/HomePage/HomePage.component";
-import SignIn from "./views/SignInAndSignUp/SignInAndSignUpPage/SignInPage.component";
+import SignIn from "./views/SignIn/SignInPage.component";
 import SignUp from "./views/SignUp/SignUpPage.component";
 import ContactPage from "./views/Contact/ContactPage.component";
 import CheckoutPage from "./views/Checkout/CheckoutPage/CheckoutPage.component";

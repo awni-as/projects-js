@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import FormInput from "../../../components/UI/Forms/FormInput.component";
-import CustomButton from "../../../components/UI/Buttons/CustomButton/CustomButton.component";
+import FormInput from "../../components/UI/Forms/FormInput.component";
+import CustomButton from "../../components/UI/Buttons/CustomButton/CustomButton.component";
 
-import { userActions } from "../../../redux/user/user.slice";
+import { userActions } from "../../redux/user/user.slice";
 
 import { SignInContainer, Title } from "./SignInPage.styles";
 
