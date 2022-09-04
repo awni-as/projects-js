@@ -9,32 +9,31 @@ import {
   ContentSubtitle,
 } from "./MenuItem.styles";
 
-function MenuItem(props) {
+const MenuItem = ({ category }) => {
+  const { imageUrl, title, linkUrl, size } = category;
+
   let navigate = useNavigate();
 
   function handleClick() {
-    navigate(`${props.linkUrl}`);
+    navigate(`${linkUrl}`);
   }
 
   return (
-    <MenuItemContainer
-      className={`menu-item ${props.size}`}
-      onClick={handleClick}
-    >
+    <MenuItemContainer className={`menu-item ${size}`} onClick={handleClick}>
       <BackgroundImageContainer
         className="background-image"
         style={{
-          backgroundImage: `url(${props.imageURL})`,
+          backgroundImage: `url(${imageUrl})`,
         }}
       ></BackgroundImageContainer>
       <ContentContainer className="content">
         <ContentTitle>
-          {props.title.charAt(0).toUpperCase() + props.title.slice(1)}
+          {title.charAt(0).toUpperCase() + title.slice(1)}
         </ContentTitle>
         <ContentSubtitle>Shop Now</ContentSubtitle>
       </ContentContainer>
     </MenuItemContainer>
   );
-}
+};
 
 export default MenuItem;

@@ -21,7 +21,7 @@ import { userActions } from "./redux/user/user.slice";
 
 const ShopPage = lazy(() => import("./views/Shop/ShopPage/ShopPage.component"));
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.currentUser);
 
@@ -61,6 +61,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

@@ -5,22 +5,16 @@ import { DirectoryMenu } from "./Directory.styles";
 
 import MenuItem from "../MenuItem/MenuItem.component";
 
-function Directory() {
-  const sections = useSelector((state) => state.directory.sections);
+const Directory = () => {
+  const categories = useSelector((state) => state.directory.sections);
 
   return (
     <DirectoryMenu>
-      {sections.map((section) => (
-        <MenuItem
-          key={section.id}
-          title={section.title}
-          imageURL={section.imageUrl}
-          size={section.size}
-          linkUrl={section.linkUrl}
-        />
+      {categories.map((category) => (
+        <MenuItem key={category.id} category={category} />
       ))}
     </DirectoryMenu>
   );
-}
+};
 
 export default Directory;

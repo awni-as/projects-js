@@ -4,12 +4,12 @@ import Directory from "../Directory/Directory.component";
 
 import { HomePageContainer } from "./HomePage.styles";
 
-function HomePage() {
+const HomePage = () => {
   return (
     <HomePageContainer>
       <Directory />
     </HomePageContainer>
   );
-}
+};
 
 export default HomePage;
